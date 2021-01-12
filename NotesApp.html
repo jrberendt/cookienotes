@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Notes App</title>
+  </head>
+  <body>
+
+    <h1>SimpleNotes</h1>
+    <input type="text" name="hello" id="input" value="hello">
+    <button type="button" onclick="getNote();">Write to note</button>
+    <button type="button" onclick="notevaradd();">+</button>
+    <button type="button" onclick="notevarsub();">-</button>
+    <p>You will be writing to page:</p>
+    <p id="notenum"></p>
+    <h2>Notes:</h2>
+    <p id="notes"> </p>
+    <button type="button" onclick="clearnotes();">Clear Notes</button>
+    <script>
+      document.cookie = "note; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+      var nnumber = 1;
+      document.getElementById("notes").innerHTML = document.cookie;
+      document.getElementById("notenum").innerHTML = nnumber;
+      function getNote(){
+          let x = document.getElementById("input").value;
+          document.cookie = "Page "+nnumber+"="+x;
+          document.getElementById("notes").innerHTML = document.cookie;
+      }
+      function notevaradd(){
+        nnumber += 1
+        document.getElementById("notenum").innerHTML = nnumber
+      }
+      function notevarsub(){
+        nnumber -= 1
+        if (nnumber = 0){
+          nnumber = 1;
+        }
+        document.getElementById("notenum").innerHTML = nnumber
+      }
+      function clearnotes(){
+        var a = document.cookie;
+        var b = a.split(";");
+        for(var i = 0; i<b.length; i++) {
+          var c = b[i].split("=");
+          document.cookie = c[0]+" =; expires = Thu, 01 Jan 1970 00:00:00 UTC";
+        }
+
+      }
+    </script>
+  </body>
+</html>
