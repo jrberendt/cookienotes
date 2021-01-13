@@ -2,11 +2,33 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Notes App</title>
+    <title>Cookienotes🍪</title>
+    
+    <style>
+        body {
+          font-family: "Times New Roman", Times, serif;
+          margin: 30px;
+          background-color:#f2e2b3;
+        }
+
+      h1 {
+          font-family: Arial, Helvetica, sans-serif;
+          font-style: bold;
+        }
+
+        p {
+          font-family: "Lucida Console", "Courier New", monospace;
+        }
+      footer {
+        position: fixed;
+        bottom: 4px;
+      }
+    
+    
+    </style>
   </head>
   <body>
-
-    <h1>SimpleNotes</h1>
+    <h1>CookieNotes</h1>
     <input type="text" name="hello" id="input" value="hello">
     <button type="button" onclick="getNote();">Write to note</button>
     <button type="button" onclick="notevaradd();">+</button>
@@ -43,9 +65,11 @@
         for(var i = 0; i<b.length; i++) {
           var c = b[i].split("=");
           document.cookie = c[0]+" =; expires = Thu, 01 Jan 1970 00:00:00 UTC";
+          window.alert("Notes cleared, refresh the page 🍪")
         }
 
       }
     </script>
   </body>
+  <footer><p>Made by Jack Berendt. https://github.com/jrberendt/cookienotes</p></footer>
 </html>
